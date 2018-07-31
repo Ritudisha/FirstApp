@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MyApp</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/one-page-wonder.min.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+      .modal-backdrop{
+        z-index: 0;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" style="background-color:black; opacity:0.8">
+      <div class="container">
+        <h3 class="navbar-brand" id = "myApp">My App</h3>
+        <h3 class="navbar-brand" style = "display:none" id = "hi">Hi! <span id = "user"></span></h3>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link"  href="#" data-toggle="modal" data-target="#signUpModal" id = "sign">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal" id = "log">Log In</a>
+
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="display:none" id = "editProf">Edit Profile</a>
+
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="display:none" id = "logOut">Log Out</a>
+
+            </li>
+
+          </ul>
+
+          <div id="loginModal" class="modal fade" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+            <div class="modal-dialog">
+
+            <!-- Modal content    style="background-color:lavender; box-shadow:lightgrey 5px 5px 5px"-->
+                <div class="modal-content" >
+                    <div class="modal-header">
+                      <center><h2>LOGIN</h2></center><br /><br />
+                    </div>
+                    <div class = "modal-body">
+                        <div id="label" class="col-xl-6 col-sm-6" style="float:left">
+                            <b>User Name/Email :</b><br /><br />
+                            <b>Password :</b>
+                        </div>
+                        <div id="inputs" class="col-xl-6 col-sm-6" style="float:left">
+                            <input type="text" id="userName" /><br /><br />
+                            <input type="password" id="password" />
+
+                        </div>
+
+                        <center><button class="btn btn-sm " id="loginButton" style="border:solid;border-color:darkgrey;width:20%;margin-top:5%" >Login</button></center><br />
+
+                        <div class="col-xl-6">
+                            <a style="float:right" href="#">Forgot password</a>
+
+                        </div>
+
+                      </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="signUpModal" class="modal fade" role="dialog" aria-labelledby="signUpModal" aria-hidden="true">
+              <div class="modal-dialog">
+
+              <!-- Modal content    style="background-color:lavender; box-shadow:lightgrey 5px 5px 5px"-->
+                  <div class="modal-content" >
+                      <div class="modal-header">
+                        <center><h2>Profile Details</h2></center><br /><br />
+                      </div>
+                      <div class = "modal-body">
+                        <div id ="NameDiv">
+                          <div class="col-xl-6 col-sm-6" style="float:left">
+                            <b>Name :</b><br/>
+                          </div>
+                          <div class="col-xl-6 col-sm-6" style="float:left">
+                            <input type="text" id="Name" /><br/>
+                          </div>
+                        </div>
+
+                        <div id ="emailDiv">
+                          <div id="label" class="col-xl-6 col-sm-6" style="float:left">
+                            <b>Email/UserName :</b><br/>
+                          </div>
+                          <div id="inputs" class="col-xl-6 col-sm-6" style="float:left">
+                            <input type="text" id="email" /><br/>
+                          </div>
+                        </div>
+                        <div id ="contactDiv">
+                          <div id="label" class="col-xl-6 col-sm-6" style="float:left">
+                            <b>Contact Number :</b><br/>
+                          </div>
+                          <div id="inputs" class="col-xl-6 col-sm-6" style="float:left">
+                            <input type="text" id="contact" /><br/>
+                          </div>
+                        </div>
+                        <div id ="passwordDiv">
+                          <div id="label" class="col-xl-6 col-sm-6" style="float:left">
+                            <b>Password :</b><br/>
+                          </div>
+                          <div id="inputs" class="col-xl-6 col-sm-6" style="float:left">
+                            <input type="password" id="editPassword" /><br/>
+                          </div>
+                        </div>
+                        <div id ="confirmPasswordDiv">
+                          <div id="label" class="col-xl-6 col-sm-6" style="float:left">
+                            <b>Confirm Password :</b><br/>
+                          </div>
+                          <div id="inputs" class="col-xl-6 col-sm-6" style="float:left">
+                            <input type="password" id="confirmPassword" /><br/>
+                          </div>
+                        </div>
+                        <span id ="updateComment" style="display:none">* Fields left blank will not be updated</span>
+                        <center><button class="btn btn-sm " id="saveButton" style="border:solid;border-color:darkgrey;width:20%;margin-top:5%">Sign Up</button></center><br />
+                        </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center text-white" style="position: relative; overflow: hidden; padding-top: calc(7rem + 72px); padding-bottom: 7rem; background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%); background-repeat: no-repeat; background-position: center center; background-attachment: scroll; background-size: cover;">
+      <div class="masthead-content">
+        <div class="container">
+          <h1 class="masthead-heading mb-0">One Page Wonder</h1>
+          <h2 class="masthead-subheading mb-0">Will Rock Your Socks Off</h2>
+          <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
+        </div>
+      </div>
+      <div class="bg-circle-1 bg-circle"></div>
+      <div class="bg-circle-2 bg-circle"></div>
+      <div class="bg-circle-3 bg-circle"></div>
+      <div class="bg-circle-4 bg-circle"></div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <!--div class="p-5">
+              <img class="img-fluid rounded-circle" src="img/01.jpg" alt="">
+            </div-->
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4">For those about to rock...</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <!--div class="p-5">
+              <img class="img-fluid rounded-circle" src="img/02.jpg" alt="">
+            </div-->
+          </div>
+          <div class="col-lg-6">
+            <div class="p-5">
+              <h2 class="display-4">We salute you!</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <!--div class="p-5">
+              <img class="img-fluid rounded-circle" src="img/03.jpg" alt="">
+            </div-->
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4">Let there be rock!</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-black">
+      <div class="container">
+        <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<!--script src="/home/ritudisha/Python Projects/libs/jquery-3.3.1.js"></script>
+<script src="/home/ritudisha/Python Projects/libs/bootstrap.min.js"></script>
+    <link href="/home/ritudisha/Python Projects/libs/bootstrap.min.css"></link-->
+
+    <script type="text/javascript">
+    if(sessionStorage.getItem("userId") != undefined)
+    {
+      $('#user').text(sessionStorage.getItem("userName"))
+      $('#loginModal').modal('hide')
+      $('#log').hide()
+      $('#sign').hide()
+      $('#myApp').hide()
+      $('#hi').show()
+      $('#logOut').show()
+      $('#editProf').show()
+      $("#saveButton").html('SignUp')
+      $("#updateComment").hide()
+    }
+      $(function (){
+
+        $('#loginButton').click(function() {
+          //alert('hi');
+            var obj = {
+              userName:$('#userName').val(),
+              password:$('#password').val()
+            };
+            console.log(obj);
+            $.ajax({
+                url: '/LoginCheck',
+                contentType: 'application/json',
+                data: JSON.stringify(obj),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+                    if(response != 'Failed')
+                    {
+                      alert('Successfully logged in');
+                      sessionStorage.setItem("userId", response.split(',')[0]);
+                      sessionStorage.setItem("userName", response.split(',')[1]);
+                      $('#user').text(response.split(',')[1])
+                      $('#loginModal').modal('hide')
+                      $('#log').hide()
+                      $('#sign').hide()
+                      $('#myApp').hide()
+                      $('#hi').show()
+                      $('#logOut').show()
+                      $('#editProf').show()
+
+                    }
+
+                    else
+                    {
+                      alert('Oops..! Incorrect User Name or Password');
+                    }
+
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+      });
+
+      $(function (){
+
+        $('#saveButton').click(function() {
+          console.log($('#editPassword').val(),$('#confirmPassword').val(),$('#email').val());
+          if($('#editPassword').val() == $('#confirmPassword').val())
+          {
+            var obj = {
+              name:$('#Name').val(),
+              email:$('#email').val(),
+              contact:$('#contact').val(),
+              password:$('#editPassword').val()
+            };
+            console.log(obj);
+            if(sessionStorage.getItem('userId') == undefined){
+            $.ajax({
+                url: '/SaveSignUp',
+                contentType: 'application/json',
+                data: JSON.stringify(obj),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+
+                    alert(response);
+
+
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+          }
+          else {
+            $.ajax({
+                url: '/EditProfile',
+                contentType: 'application/json',
+                data: JSON.stringify(obj),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+
+                    alert(response);
+
+
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+          }
+          }
+          else {
+            alert('Value entered in password and confirmPassword should be equal');
+          }
+        });
+
+      });
+
+      $(function (){
+
+        $('#logOut').click(function() {
+
+
+            var obj = {
+              userId:sessionStorage.getItem("userId")
+
+            };
+            console.log(obj);
+            $.ajax({
+                url: '/logOut',
+                contentType: 'application/json',
+                data: JSON.stringify(obj),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+
+                    alert(response);
+                    sessionStorage.removeItem("userId")
+                    sessionStorage.removeItem("userName")
+                    location.reload(true);
+
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+
+        });
+
+      });
+
+      $(function (){
+
+        $('#editProf').click(function() {
+
+
+            var obj = {
+              userId:sessionStorage.getItem("userId")
+
+            };
+            console.log(obj);
+            $.ajax({
+                url: '/GetUserProfile',
+                contentType: 'application/json',
+                data: JSON.stringify(obj),
+                type: 'POST',
+                success: function(response) {
+                    json = JSON.parse(response)
+                    console.log(json);
+
+                    //alert(response);
+                    $('#Name').val(json[0])
+                    $('#email').val(json[1])
+                    $('#contact').val(json[2])
+                    $("#saveButton").html('Save')
+                    $('#signUpModal').modal('show')
+                    $('#email').attr("disabled", true)
+                    $('#updateComment').show()
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+
+        });
+
+      });
+
+    </script>
+
+
+  </body>
+
+</html>
